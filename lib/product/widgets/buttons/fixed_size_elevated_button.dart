@@ -15,10 +15,11 @@ class FixedSizeElevatedButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 20,
+          foregroundColor: context.colorScheme.onPrimary,
           backgroundColor: backgroundColor,
           fixedSize: const Size(96, 64),
           shape: RoundedRectangleBorder(
-            // side: const BorderSide(width: 1, color: Colors.white),
+            side: BorderSide(width: 2, color: context.colorScheme.onPrimary),
             borderRadius: context.lowBorderRadius,
           ),
         ),

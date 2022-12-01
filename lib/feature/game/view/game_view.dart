@@ -8,20 +8,12 @@ class GameView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        title: const Text('timer'),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: const Color(0xff138bfe),
-        automaticallyImplyLeading: false,
-      ), */
-      backgroundColor: const Color(0xff4d2c91),
       body: SafeArea(
         child: Column(
           children: [
             context.emptySizedHeightBoxLow,
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Padding(
                 padding: context.horizontalPaddingLow,
                 child: Row(
@@ -29,7 +21,6 @@ class GameView extends StatelessWidget {
                     Expanded(
                       flex: 4,
                       child: Card(
-                        color: const Color(0xff6439bd),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -48,7 +39,6 @@ class GameView extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Card(
-                        color: const Color(0xff6439bd),
                         child: Container(
                           alignment: Alignment.center,
                           height: context.height,
@@ -62,7 +52,6 @@ class GameView extends StatelessWidget {
                     Expanded(
                       flex: 4,
                       child: Card(
-                        color: const Color(0xff6439bd),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -84,17 +73,16 @@ class GameView extends StatelessWidget {
             ),
             context.emptySizedHeightBoxLow,
             Expanded(
-              flex: 8,
+              flex: 11,
               child: PageView.builder(
-                itemCount: 2,
+                itemCount: 20,
                 itemBuilder: (context, index) => Card(
                   margin: EdgeInsets.zero,
-                  color: const Color(0xff6439bd),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'data',
+                        'data $index',
                         style: context.textTheme.headline2,
                       ),
                       Divider(
@@ -119,26 +107,23 @@ class GameView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FixedSizeElevatedButton(
-                    backgroundColor: Colors.red,
+                    backgroundColor: context.colorScheme.error,
                     child: const Icon(
                       Icons.close,
-                      color: Colors.white,
                     ),
                     onPressed: () {},
                   ),
                   FixedSizeElevatedButton(
-                    backgroundColor: Colors.orange,
+                    backgroundColor: context.colorScheme.background,
                     child: const Icon(
                       Icons.cached_rounded,
-                      color: Colors.white,
                     ),
                     onPressed: () {},
                   ),
                   FixedSizeElevatedButton(
-                    backgroundColor: Colors.green,
+                    backgroundColor: context.colorScheme.onBackground,
                     child: const Icon(
                       Icons.check,
-                      color: Colors.white,
                     ),
                     onPressed: () {},
                   ),

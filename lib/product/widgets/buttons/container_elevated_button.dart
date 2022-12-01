@@ -23,9 +23,10 @@ class ContainerElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor ?? const Color(0xff4d2c91),
+        backgroundColor: backgroundColor ?? context.colorScheme.secondary,
         elevation: elevation ?? 20,
         shape: RoundedRectangleBorder(
+          side: BorderSide(width: 2, color: context.colorScheme.primary),
           borderRadius: context.lowBorderRadius,
         ),
       ),

@@ -9,7 +9,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff4d2c91),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -19,17 +18,16 @@ class HomeView extends StatelessWidget {
               Text(
                 'TABU',
                 style: context.textTheme.headline1?.copyWith(
-                  color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
               const Spacer(),
               Container(
                 decoration: BoxDecoration(
-                  color: const Color(0xff6439bd),
-                  boxShadow: const [
+                  color: context.colorScheme.primary,
+                  boxShadow: [
                     BoxShadow(
-                      color: Color(0xff6439bd),
+                      color: context.colorScheme.primary,
                       spreadRadius: 10,
                       blurRadius: 20,
                     ),
@@ -40,20 +38,21 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   children: [
                     ContainerElevatedButton(
-                        onPressed: () {
-                          context.navigateToPage(const GameView());
-                        },
-                        child: Text(
-                          'OYNA',
-                          style: context.textTheme.headline4?.copyWith(color: Colors.white, letterSpacing: 10),
-                        )),
+                      onPressed: () {
+                        context.navigateToPage(const GameView());
+                      },
+                      child: Text(
+                        'OYNA',
+                        style: context.textTheme.headline4?.copyWith(letterSpacing: 10, fontWeight: FontWeight.w500),
+                      ),
+                    ),
                     context.emptySizedHeightBoxNormal,
                     ContainerElevatedButton(
                       onPressed: () {},
                       elevation: 10,
                       height: 44,
                       width: context.width / 2.5,
-                      child: const Text('Ayarlar'),
+                      child: Text('Ayarlar', style: context.textTheme.titleMedium),
                     ),
                     context.emptySizedHeightBoxLow3x,
                     ContainerElevatedButton(
@@ -61,7 +60,7 @@ class HomeView extends StatelessWidget {
                       elevation: 10,
                       height: 44,
                       width: context.width / 2.5,
-                      child: const Text('Kurallar'),
+                      child: Text('Kurallar', style: context.textTheme.titleMedium),
                     ),
                   ],
                 ),

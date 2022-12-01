@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tabu/core/constants/app/app_constants.dart';
+import 'package:tabu/core/init/theme/app_theme.dart';
+import 'package:tabu/core/init/theme/light/app_theme_light.dart';
 import 'package:tabu/feature/home/view/home_view.dart';
 
 void main() => runApp(const MyApp());
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: const HomeView(),
-      theme: ThemeData(fontFamily: ApplicationConstants.FONT_FAMILY),
+      theme: AppThemeLight.instance.theme,
     );
   }
 }
