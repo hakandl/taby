@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tabu/core/constants/app/app_constants.dart';
-import 'package:tabu/core/init/theme/app_theme.dart';
+import 'package:provider/provider.dart';
 import 'package:tabu/core/init/theme/light/app_theme_light.dart';
 import 'package:tabu/feature/home/view/home_view.dart';
+import 'package:tabu/product/init/product/product_init.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  final productInit = ProductInit();
+  runApp(
+    MultiProvider(
+      providers: productInit.providers,
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
