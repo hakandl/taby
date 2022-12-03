@@ -3,6 +3,7 @@ import 'package:kartal/kartal.dart';
 import 'package:tabu/feature/game/view/game_view.dart';
 
 import '../../../product/widgets/buttons/container_elevated_button.dart';
+import '../../settings/view/settings_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -48,7 +49,7 @@ class HomeView extends StatelessWidget {
                     ),
                     context.emptySizedHeightBoxNormal,
                     ContainerElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => context.navigateToPage(const SettingsView()),
                       elevation: 10,
                       height: 44,
                       width: context.width / 2.5,
