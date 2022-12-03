@@ -22,6 +22,7 @@ class AppThemeLight extends AppTheme with IThemeLight {
             ),
         primaryTextTheme: ThemeData.light().textTheme.apply(fontFamily: ApplicationConstants.FONT_FAMILY),
         colorScheme: _colorScheme,
+        appBarTheme: _appBarTheme,
         scaffoldBackgroundColor: colorSchemeLight?.daisyBush,
         cardColor: colorSchemeLight?.purpleHeart,
       );
@@ -38,5 +39,11 @@ class AppThemeLight extends AppTheme with IThemeLight {
         onBackground: colorSchemeLight!.forestGreen,
         surface: colorSchemeLight!.purpleHeart,
         onSurface: colorSchemeLight!.forestGreen,
+      );
+
+  AppBarTheme get _appBarTheme => AppBarTheme(
+        systemOverlayStyle: colorSchemeLight!.systemOverlayStyle,
+        centerTitle: true,
+        titleTextStyle: TextStyle(color: _colorScheme.onPrimary, fontSize: 20, fontWeight: FontWeight.w500),
       );
 }

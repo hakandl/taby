@@ -10,8 +10,10 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          color: context.colorScheme.onPrimary,
+        ),
         title: const Text('Ayarlar'),
-        centerTitle: true,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
