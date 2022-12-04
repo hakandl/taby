@@ -7,6 +7,7 @@ import 'package:tabu/product/widgets/cards/team_score_card.dart';
 
 import '../../../core/base/view/base_view.dart';
 import '../../../product/widgets/cards/timer_card.dart';
+import '../../settings/viewmodel/settings_viewmodel.dart';
 
 class GameView extends StatelessWidget {
   const GameView({super.key});
@@ -18,6 +19,9 @@ class GameView extends StatelessWidget {
       onModelReady: (model) {
         model.setContext(context);
         model.init();
+      },
+      onDispose: (model) {
+        model.stopTimer();
       },
       onPageBuilder: (context, value) => ChangeNotifierProvider(
         create: (context) => value,
@@ -35,12 +39,14 @@ class GameView extends StatelessWidget {
                         Expanded(
                             flex: 4,
                             child: TeamScoreCard(
-                                name: 'Takım 1', score: context.watch<GameViewModel>().firstTeamScore.toString())),
+                                name: context.watch<SettingsViewModel>().firstTeamTextField.text,
+                                score: context.watch<GameViewModel>().firstTeamScore.toString())),
                         Expanded(flex: 2, child: TimerCard(timer: context.watch<GameViewModel>().remainingTime)),
                         Expanded(
                             flex: 4,
                             child: TeamScoreCard(
-                                name: 'Takım 2', score: context.watch<GameViewModel>().secondTeamScore.toString())),
+                                name: context.watch<SettingsViewModel>().secondTeamTextField.text,
+                                score: context.watch<GameViewModel>().secondTeamScore.toString())),
                       ],
                     ),
                   ),
@@ -91,10 +97,10 @@ class GameView extends StatelessWidget {
                       ),
                       FixedSizeElevatedButton(
                         backgroundColor: context.colorScheme.background,
+                        onPressed: context.read<SettingsViewModel>().skip == 0 ? null : () => value.pass(),
                         child: const Icon(
                           Icons.cached_rounded,
                         ),
-                        onPressed: () => value.pass(),
                       ),
                       FixedSizeElevatedButton(
                         backgroundColor: context.colorScheme.onBackground,

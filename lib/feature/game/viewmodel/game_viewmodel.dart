@@ -3,7 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:tabu/core/base/viewmodel/base_viewmodel.dart';
+import 'package:tabu/feature/home/view/home_view.dart';
+import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
 import 'package:tabu/product/widgets/dialog/tabu_dialog.dart';
+import 'package:provider/provider.dart';
 
 class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
   @override
@@ -13,11 +16,16 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
     startTimer();
   }
 
+  /* void disposeTimer() {
+    stopTimer();
+  } */
+
   PageController pageController = PageController();
 
-  Timer? timers;
-  int time = 5;
-  late int remainingTime = time;
+  Timer? timer;
+  late int remainingTime = context!.read<SettingsViewModel>().seconds;
+
+  late int skipCount = context!.read<SettingsViewModel>().skip;
 
   bool firstTeam = true;
   int firstTeamScore = 0;
@@ -26,13 +34,14 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
   void startTimer() {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        timers = Timer.periodic(
+        timer = Timer.periodic(
           const Duration(seconds: 1),
           (_) {
             if (remainingTime > 0) {
               remainingTime--;
               notifyListeners();
-            } else if (firstTeamScore >= 20 || secondTeamScore >= 20) {
+            } else if (firstTeamScore >= context!.read<SettingsViewModel>().score ||
+                secondTeamScore >= context!.read<SettingsViewModel>().score) {
               stopTimer();
               nextResultView();
             } else {
@@ -49,37 +58,49 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
   }
 
   void resetTimer() {
-    remainingTime = time;
+    remainingTime = context!.read<SettingsViewModel>().seconds;
+
+    // düzenlenecek
+    context!.read<SettingsViewModel>().skip = 5;
+    print(context!.read<SettingsViewModel>().skip);
     startTimer();
     notifyListeners();
   }
 
   void stopTimer() {
-    timers?.cancel();
+    timer?.cancel();
   }
 
   void addScore() {
     firstTeam ? firstTeamScore++ : secondTeamScore++;
+    print(context!.read<SettingsViewModel>().skip);
     pageController.jumpToPage(pageController.page!.toInt() + 1);
     notifyListeners();
   }
 
   void removeScore() {
-    firstTeam ? firstTeamScore-- : secondTeamScore--;
+    if (firstTeamScore > 0) firstTeam ? firstTeamScore-- : null;
+    if (secondTeamScore > 0) firstTeam ? null : secondTeamScore--;
     pageController.jumpToPage(pageController.page!.toInt() + 1);
     notifyListeners();
   }
 
   void pass() {
-    pageController.jumpToPage(pageController.page!.toInt() + 1);
-    notifyListeners();
+    if (context!.read<SettingsViewModel>().skip != 0) {
+      pageController.jumpToPage(pageController.page!.toInt() + 1);
+      context!.read<SettingsViewModel>().downSkip();
+      notifyListeners();
+    }
   }
 
   void teamChange() {
     firstTeam = !firstTeam;
+
     resetTimer();
     context?.pop();
   }
 
-  void nextResultView() {}
+  void nextResultView() {
+    context?.navigateToPage(const HomeView());
+  }
 }

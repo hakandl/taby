@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 
 class SettingsViewModel extends ChangeNotifier {
-  TextEditingController firstTeamTextField = TextEditingController();
-  TextEditingController secondTeamTextField = TextEditingController();
+  late TextEditingController firstTeamTextField;
+  late TextEditingController secondTeamTextField;
 
   String firstTeamName = 'Takım 1';
   String secondTeamName = 'Takım 2';
 
+  SettingsViewModel() {
+    firstTeamTextField = TextEditingController();
+    secondTeamTextField = TextEditingController();
+    firstTeamTextField.text = firstTeamName;
+    secondTeamTextField.text = secondTeamName;
+  }
+
+  void textFieldDispose() {
+    firstTeamTextField.dispose();
+    secondTeamTextField.dispose();
+  }
+
   int score = 10;
-  int seconds = 90;
-  int pass = 3;
+  int seconds = 5;
+  int skip = 3;
 
   void upScore() {
     score = score + 5;
@@ -31,13 +43,13 @@ class SettingsViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void upPass() {
-    pass = pass + 1;
+  void upSkip() {
+    skip = skip + 1;
     notifyListeners();
   }
 
-  void downPass() {
-    if (pass > 0) pass = pass - 1;
+  void downSkip() {
+    if (skip > 0) skip = skip - 1;
     notifyListeners();
   }
 }

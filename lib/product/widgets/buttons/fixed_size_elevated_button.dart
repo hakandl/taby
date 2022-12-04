@@ -5,7 +5,7 @@ class FixedSizeElevatedButton extends StatelessWidget {
   const FixedSizeElevatedButton(
       {super.key, required this.child, required this.onPressed, this.backgroundColor, this.size, this.elevation});
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color? backgroundColor;
   final Size? size;
   final double? elevation;
