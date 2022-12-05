@@ -16,15 +16,10 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
     startTimer();
   }
 
-  /* void disposeTimer() {
-    stopTimer();
-  } */
-
+  Timer? timer;
   PageController pageController = PageController();
 
-  Timer? timer;
   late int remainingTime = context!.read<SettingsViewModel>().seconds;
-
   late int skipCount = context!.read<SettingsViewModel>().skip;
 
   bool firstTeam = true;
@@ -48,7 +43,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
               stopTimer();
               showTabuShowDialog(
                 context!,
-                onPressed: () => teamChange(),
+                onPressed: () => reset(),
               );
             }
           },
@@ -57,12 +52,11 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
     );
   }
 
-  void resetTimer() {
+  void reset() {
+    firstTeam = !firstTeam;
     remainingTime = context!.read<SettingsViewModel>().seconds;
-
-    // düzenlenecek
-    context!.read<SettingsViewModel>().skip = 5;
-    print(context!.read<SettingsViewModel>().skip);
+    skipCount = context!.read<SettingsViewModel>().skip;
+    context?.pop();
     startTimer();
     notifyListeners();
   }
@@ -73,7 +67,6 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
 
   void addScore() {
     firstTeam ? firstTeamScore++ : secondTeamScore++;
-    print(context!.read<SettingsViewModel>().skip);
     pageController.jumpToPage(pageController.page!.toInt() + 1);
     notifyListeners();
   }
@@ -85,19 +78,12 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
     notifyListeners();
   }
 
-  void pass() {
+  void skip() {
     if (context!.read<SettingsViewModel>().skip != 0) {
       pageController.jumpToPage(pageController.page!.toInt() + 1);
-      context!.read<SettingsViewModel>().downSkip();
+      skipCount--;
       notifyListeners();
     }
-  }
-
-  void teamChange() {
-    firstTeam = !firstTeam;
-
-    resetTimer();
-    context?.pop();
   }
 
   void nextResultView() {

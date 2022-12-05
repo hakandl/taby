@@ -82,7 +82,6 @@ class GameView extends StatelessWidget {
                     ),
                   ),
                 ),
-                // context.emptySizedHeightBoxLow3x,
                 Expanded(
                   flex: 2,
                   child: Row(
@@ -97,7 +96,7 @@ class GameView extends StatelessWidget {
                       ),
                       FixedSizeElevatedButton(
                         backgroundColor: context.colorScheme.background,
-                        onPressed: context.read<SettingsViewModel>().skip == 0 ? null : () => value.pass(),
+                        onPressed: context.read<GameViewModel>().skipCount == 0 ? null : () => value.skip(),
                         child: const Icon(
                           Icons.cached_rounded,
                         ),
@@ -112,7 +111,6 @@ class GameView extends StatelessWidget {
                     ],
                   ),
                 ),
-                // context.emptySizedHeightBoxLow3x,
               ],
             ),
           ),
