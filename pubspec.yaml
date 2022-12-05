@@ -13,6 +13,9 @@ dependencies:
   # State Management
   provider: ^6.0.4
 
+  # Database
+  hive_flutter: ^1.1.0
+
   # Utitilities
   kartal: ^2.4.3
 

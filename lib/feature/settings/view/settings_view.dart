@@ -20,6 +20,10 @@ class SettingsView extends StatelessWidget {
               appBar: AppBar(
                 leading: BackButton(
                   color: context.colorScheme.onPrimary,
+                  onPressed: () {
+                    context.read<SettingsViewModel>().changeTeamName();
+                    context.pop();
+                  },
                 ),
                 title: const Text('Ayarlar'),
               ),
@@ -44,11 +48,9 @@ class SettingsView extends StatelessWidget {
                         endIndent: context.width * .02,
                       ),
                       context.emptySizedHeightBoxLow3x,
-                      textFieldContainer(context, context.watch<SettingsViewModel>().firstTeamTextField.text,
-                          context.watch<SettingsViewModel>().firstTeamTextField),
+                      textFieldContainer(context, context.watch<SettingsViewModel>().firstTeamTextField),
                       context.emptySizedHeightBoxLow3x,
-                      textFieldContainer(context, context.watch<SettingsViewModel>().secondTeamTextField.text,
-                          context.watch<SettingsViewModel>().secondTeamTextField),
+                      textFieldContainer(context, context.watch<SettingsViewModel>().secondTeamTextField),
                       context.emptySizedHeightBoxLow3x,
                       RowSettingsContainer(
                         text: '${context.watch<SettingsViewModel>().score} puan',
@@ -75,7 +77,7 @@ class SettingsView extends StatelessWidget {
             ));
   }
 
-  Container textFieldContainer(BuildContext context, String title, TextEditingController controller) {
+  Container textFieldContainer(BuildContext context, TextEditingController controller) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: context.normalBorderRadius,
@@ -84,7 +86,6 @@ class SettingsView extends StatelessWidget {
       padding: context.paddingNormal,
       child: TeamTextField(
         context: context,
-        title: title,
         controller: controller,
       ),
     );

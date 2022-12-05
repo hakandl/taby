@@ -3,18 +3,14 @@ import 'package:kartal/kartal.dart';
 
 class TeamTextField extends TextField {
   TeamTextField({
+    super.key,
     required BuildContext context,
-    Key? key,
-    String? title,
     TextEditingController? controller,
   }) : super(
-          key: key,
           style: context.textTheme.headline6,
           controller: controller,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             isDense: true,
-            hintText: title,
-            hintStyle: context.textTheme.headline6,
             border: InputBorder.none,
           ),
         );
