@@ -11,6 +11,7 @@ import '../../home/view/home_view.dart';
 import '../../settings/viewmodel/settings_viewmodel.dart';
 
 part '../module/widgets/pause_card.dart';
+part '../module/widgets/change_team_card.dart';
 part '../module/widgets/bottom_buttons.dart';
 
 class GameView extends StatelessWidget {
@@ -71,7 +72,7 @@ class GameView extends StatelessWidget {
                         if (context.watch<GameViewModel>().timer != null &&
                             !context.watch<GameViewModel>().timer!.isActive) {
                           return context.watch<GameViewModel>().remainingTime == 0
-                              ? const Card(child: Center(child: Text('bitti')))
+                              ? const ChangeTeamCard()
                               : const PauseCard();
                         }
                         return Card(
