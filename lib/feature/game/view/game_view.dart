@@ -7,7 +7,11 @@ import 'package:tabu/product/widgets/cards/team_score_card.dart';
 
 import '../../../core/base/view/base_view.dart';
 import '../../../product/widgets/cards/timer_card.dart';
+import '../../home/view/home_view.dart';
 import '../../settings/viewmodel/settings_viewmodel.dart';
+
+part '../module/widgets/pause_card.dart';
+part '../module/widgets/bottom_buttons.dart';
 
 class GameView extends StatelessWidget {
   const GameView({super.key});
@@ -37,11 +41,16 @@ class GameView extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                            flex: 4,
-                            child: TeamScoreCard(
-                                name: context.watch<SettingsViewModel>().firstTeamTextField.text,
-                                score: context.watch<GameViewModel>().firstTeamScore.toString())),
-                        Expanded(flex: 2, child: TimerCard(timer: context.watch<GameViewModel>().remainingTime)),
+                          flex: 4,
+                          child: TeamScoreCard(
+                              name: context.watch<SettingsViewModel>().firstTeamTextField.text,
+                              score: context.watch<GameViewModel>().firstTeamScore.toString()),
+                        ),
+                        Expanded(
+                            flex: 2,
+                            child: TimerCard(
+                                onTap: () => context.read<GameViewModel>().stopTimer(),
+                                timer: context.watch<GameViewModel>().remainingTime)),
                         Expanded(
                             flex: 4,
                             child: TeamScoreCard(
@@ -55,62 +64,45 @@ class GameView extends StatelessWidget {
                 Expanded(
                   flex: 11,
                   child: PageView.builder(
-                    controller: value.pageController,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 20,
-                    itemBuilder: (context, index) => Card(
-                      margin: EdgeInsets.zero,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'data $index',
-                            style: context.textTheme.headline2,
+                      controller: value.pageController,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 20,
+                      itemBuilder: (context, index) {
+                        if (context.watch<GameViewModel>().timer != null &&
+                            !context.watch<GameViewModel>().timer!.isActive) {
+                          return context.watch<GameViewModel>().remainingTime == 0
+                              ? const Card(child: Center(child: Text('bitti')))
+                              : const PauseCard();
+                        }
+                        return Card(
+                          margin: EdgeInsets.zero,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'data $index',
+                                style: context.textTheme.headline2,
+                              ),
+                              Divider(
+                                thickness: 3,
+                                endIndent: context.width / 6,
+                                indent: context.width / 6,
+                              ),
+                              Text('data', style: context.textTheme.headline4),
+                              Text('data', style: context.textTheme.headline4),
+                              Text('data', style: context.textTheme.headline4),
+                              Text('data', style: context.textTheme.headline4),
+                              Text('data', style: context.textTheme.headline4),
+                            ],
                           ),
-                          Divider(
-                            thickness: 3,
-                            endIndent: context.width / 6,
-                            indent: context.width / 6,
-                          ),
-                          Text('data', style: context.textTheme.headline4),
-                          Text('data', style: context.textTheme.headline4),
-                          Text('data', style: context.textTheme.headline4),
-                          Text('data', style: context.textTheme.headline4),
-                          Text('data', style: context.textTheme.headline4),
-                        ],
-                      ),
-                    ),
-                  ),
+                        );
+                      }),
                 ),
                 Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      FixedSizeElevatedButton(
-                        backgroundColor: context.colorScheme.error,
-                        child: const Icon(
-                          Icons.close,
-                        ),
-                        onPressed: () => value.removeScore(),
-                      ),
-                      FixedSizeElevatedButton(
-                        backgroundColor: context.colorScheme.background,
-                        onPressed: context.read<GameViewModel>().skipCount == 0 ? null : () => value.skip(),
-                        child: const Icon(
-                          Icons.cached_rounded,
-                        ),
-                      ),
-                      FixedSizeElevatedButton(
-                        backgroundColor: context.colorScheme.onBackground,
-                        child: const Icon(
-                          Icons.check,
-                        ),
-                        onPressed: () => value.addScore(),
-                      ),
-                    ],
-                  ),
-                ),
+                    flex: 2,
+                    child: BottomButtons(
+                      value: value,
+                    )),
               ],
             ),
           ),

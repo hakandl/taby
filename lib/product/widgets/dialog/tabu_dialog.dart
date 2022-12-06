@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
+import 'package:tabu/product/widgets/buttons/fixed_size_elevated_button.dart';
 
 mixin TabuShowDialog {
   Future<T?> showTabuShowDialog<T>(
@@ -9,6 +11,7 @@ mixin TabuShowDialog {
   }) async {
     return showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) => TabuAlertDialog(
         title: title,
         content: content,
@@ -32,24 +35,34 @@ class TabuAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: context.colorScheme.primary,
       title: Text(title ?? 'AAAAA'),
-      content: Text(content ?? 'AAA'),
-      actions: [
-        Row(
-          children: [
-            const Spacer(),
-            _saveButton(),
-          ],
+      content: ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: context.height / 5,
         ),
+        child: Text(content ?? 'AAA'),
+      ),
+      actions: [
+        _saveButton(),
       ],
+      titleTextStyle: context.textTheme.headline5?.copyWith(
+        color: context.colorScheme.onPrimary,
+        fontWeight: FontWeight.w500,
+      ),
+      contentTextStyle: context.textTheme.headline5?.copyWith(
+        color: context.colorScheme.onPrimary,
+      ),
     );
   }
 
-  ElevatedButton _saveButton() {
-    return ElevatedButton(
+  Widget _saveButton() {
+    return FixedSizeElevatedButton(
       onPressed: onPressed,
-      child: const Text(
-        'baa',
+      elevation: 0,
+      child: const Icon(
+        Icons.play_arrow,
+        size: 40,
       ),
     );
   }

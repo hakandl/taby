@@ -5,10 +5,9 @@ import 'package:kartal/kartal.dart';
 import 'package:tabu/core/base/viewmodel/base_viewmodel.dart';
 import 'package:tabu/feature/home/view/home_view.dart';
 import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
-import 'package:tabu/product/widgets/dialog/tabu_dialog.dart';
 import 'package:provider/provider.dart';
 
-class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
+class GameViewModel extends ChangeNotifier with BaseViewModel {
   @override
   void setContext(BuildContext context) => this.context = context;
   @override
@@ -41,13 +40,11 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
               nextResultView();
             } else {
               stopTimer();
-              showTabuShowDialog(
-                context!,
-                onPressed: () => reset(),
-              );
+              // reset();
             }
           },
         );
+        notifyListeners();
       },
     );
   }
@@ -56,13 +53,14 @@ class GameViewModel extends ChangeNotifier with BaseViewModel, TabuShowDialog {
     firstTeam = !firstTeam;
     remainingTime = context!.read<SettingsViewModel>().seconds;
     skipCount = context!.read<SettingsViewModel>().skip;
-    context?.pop();
+    // context?.pop();
     startTimer();
-    notifyListeners();
+    // notifyListeners();
   }
 
   void stopTimer() {
     timer?.cancel();
+    notifyListeners();
   }
 
   void addScore() {
