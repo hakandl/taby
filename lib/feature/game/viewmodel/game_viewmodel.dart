@@ -37,7 +37,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
             } else if (firstTeamScore >= context!.read<SettingsViewModel>().score ||
                 secondTeamScore >= context!.read<SettingsViewModel>().score) {
               stopTimer();
-              nextResultView();
+              // nextResultView();
             } else {
               stopTimer();
               // reset();

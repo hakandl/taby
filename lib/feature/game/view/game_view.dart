@@ -3,6 +3,7 @@ import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import 'package:tabu/feature/game/viewmodel/game_viewmodel.dart';
 import 'package:tabu/product/widgets/buttons/fixed_size_elevated_button.dart';
+import 'package:tabu/product/widgets/cards/game_status_card.dart';
 import 'package:tabu/product/widgets/cards/team_score_card.dart';
 
 import '../../../core/base/view/base_view.dart';
@@ -10,8 +11,6 @@ import '../../../product/widgets/cards/timer_card.dart';
 import '../../home/view/home_view.dart';
 import '../../settings/viewmodel/settings_viewmodel.dart';
 
-part '../module/widgets/pause_card.dart';
-part '../module/widgets/change_team_card.dart';
 part '../module/widgets/bottom_buttons.dart';
 
 class GameView extends StatelessWidget {
@@ -71,9 +70,22 @@ class GameView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         if (context.watch<GameViewModel>().timer != null &&
                             !context.watch<GameViewModel>().timer!.isActive) {
-                          return context.watch<GameViewModel>().remainingTime == 0
-                              ? const ChangeTeamCard()
-                              : const PauseCard();
+                          if (value.firstTeamScore >= context.read<SettingsViewModel>().score ||
+                              value.secondTeamScore >= context.read<SettingsViewModel>().score) {
+                            return GameStatusCard(
+                              icon: Icons.thumb_up_outlined,
+                              text:
+                                  'Oyun bitti, kazanan ${value.firstTeamScore > value.secondTeamScore ? context.watch<SettingsViewModel>().firstTeamTextField.text : context.watch<SettingsViewModel>().secondTeamTextField.text} oldu',
+                            );
+                          } else if (context.watch<GameViewModel>().remainingTime == 0) {
+                            return const GameStatusCard(
+                              icon: Icons.timer_outlined,
+                              title: 'Süre doldu',
+                              text: 'Telefonu diğer takıma verin',
+                            );
+                          } else {
+                            return const GameStatusCard(icon: Icons.pause);
+                          }
                         }
                         return Card(
                           margin: EdgeInsets.zero,
@@ -100,10 +112,11 @@ class GameView extends StatelessWidget {
                       }),
                 ),
                 Expanded(
-                    flex: 2,
-                    child: BottomButtons(
-                      value: value,
-                    )),
+                  flex: 2,
+                  child: BottomButtons(
+                    value: value,
+                  ),
+                ),
               ],
             ),
           ),
