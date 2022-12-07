@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
 import 'package:tabu/core/base/viewmodel/base_viewmodel.dart';
+import 'package:tabu/feature/game/model/game_model.dart';
 import 'package:tabu/feature/home/view/home_view.dart';
 import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +16,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   @override
   void init() {
     startTimer();
+    getWords();
   }
 
   Timer? timer;
@@ -24,6 +28,15 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   bool firstTeam = true;
   int firstTeamScore = 0;
   int secondTeamScore = 0;
+
+  List<GameModel> wordsList = [];
+
+  Future<void> getWords() async {
+    final response = await rootBundle.loadString('assets/data/words.json');
+    final jsonResponse = await jsonDecode(response) as List;
+    // final jsonResponse = await compute(jsonDecode, response) as List;
+    wordsList = jsonResponse.map((e) => GameModel.fromJson(e)).toList();
+  }
 
   void startTimer() {
     WidgetsBinding.instance.addPostFrameCallback(

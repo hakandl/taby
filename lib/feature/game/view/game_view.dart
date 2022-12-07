@@ -66,7 +66,7 @@ class GameView extends StatelessWidget {
                   child: PageView.builder(
                       controller: value.pageController,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 20,
+                      itemCount: value.wordsList.length,
                       itemBuilder: (context, index) {
                         if (context.watch<GameViewModel>().timer != null &&
                             !context.watch<GameViewModel>().timer!.isActive) {
@@ -93,7 +93,7 @@ class GameView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'data $index',
+                                value.wordsList[index].word!.toUpperCase(),
                                 style: context.textTheme.headline2,
                               ),
                               Divider(
@@ -101,11 +101,15 @@ class GameView extends StatelessWidget {
                                 endIndent: context.width / 6,
                                 indent: context.width / 6,
                               ),
+                              Text(
+                                '${value.wordsList[index].taboo?.replaceAll(',', '\n').toTitleCase()}',
+                                style: context.textTheme.headline4,
+                                textAlign: TextAlign.center,
+                              ),
+                              /* Text('data', style: context.textTheme.headline4),
                               Text('data', style: context.textTheme.headline4),
                               Text('data', style: context.textTheme.headline4),
-                              Text('data', style: context.textTheme.headline4),
-                              Text('data', style: context.textTheme.headline4),
-                              Text('data', style: context.textTheme.headline4),
+                              Text('data', style: context.textTheme.headline4), */
                             ],
                           ),
                         );
