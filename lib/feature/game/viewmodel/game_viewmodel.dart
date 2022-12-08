@@ -35,7 +35,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
     final response = await rootBundle.loadString('assets/data/words.json');
     final jsonResponse = await jsonDecode(response) as List;
     // final jsonResponse = await compute(jsonDecode, response) as List;
-    wordsList = jsonResponse.map((e) => GameModel.fromJson(e)).toList();
+    wordsList = jsonResponse.map((e) => GameModel.fromJson(e)).toList()..shuffle();
   }
 
   void startTimer() {
@@ -67,6 +67,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
     remainingTime = context!.read<SettingsViewModel>().seconds;
     skipCount = context!.read<SettingsViewModel>().skip;
     // context?.pop();
+    wordsList.shuffle();
     startTimer();
     // notifyListeners();
   }

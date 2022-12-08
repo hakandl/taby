@@ -1,5 +1,25 @@
 [
     {
+        "word": "atatürk",
+        "taboo": "mustafa kemal, gazi, türkiye, 1881 - 1938, lider"
+    },
+    {
+        "word": "elon musk",
+        "taboo": "tesla, spacex, twitter, bitcoin, zengin"
+    },
+    {
+        "word": "bill gates",
+        "taboo": "windows, microsoft, bilgisayar, office, zengin"
+    },
+    {
+        "word": "şebnem ferah",
+        "taboo": "şarkıcı, rock, kadın, volvox, can kırıkları"
+    },
+    {
+        "word": "edison",
+        "taboo": "ampül, elektrik, amerika, ışık, akşam"
+    },
+    {
         "word": "kedi",
         "taboo": "pati, fare, tüy, kuyruk, hayvan"
     },
@@ -8,7 +28,375 @@
         "taboo": "kilit, metal, masa, kapı, çilingir"
     },
     {
+        "word": "türkiye",
+        "taboo": "atatürk, istanbul, cennet, ülke, büyük"
+    },
+    {
+        "word": "nevşehir",
+        "taboo": "il, kapadokya, ürgüp, peri bacası, göreme"
+    },
+    {
         "word": "facebook",
-        "taboo": "instagram, whatsapp, sosyal medya, mark zuckerberg, mavi"
+        "taboo": "instagram, whatsapp, sosyal medya, mark zuckerberg, messenger"
+    },
+    {
+        "word": "fidan",
+        "taboo": "ağaç, büyümek, küçük, orman, dikmek"
+    },
+    {
+        "word": "pratik",
+        "taboo": "kolay, zeka, çabuk, hızlı, çözüm"
+    },
+    {
+        "word": "mesai",
+        "taboo": "saat, iş, fazla, akşam, kalmak"
+    },
+    {
+        "word": "küsmek",
+        "taboo": "darılmak, kızmak, konuşmak, tartışmak, kavga"
+    },
+    {
+        "word": "avize",
+        "taboo": "lamba, kristal, tavan, ışık, aydınlık"
+    },
+    {
+        "word": "terim",
+        "taboo": "kelime, anlam, fatih, sanat, kavram"
+    },
+    {
+        "word": "yüzük",
+        "taboo": "parmak, evlilik, takı, nikah, nişan"
+    },
+    {
+        "word": "menemen",
+        "taboo": "yumurta, domates, soğan, tava, kahvaltı"
+    },
+    {
+        "word": "stepne",
+        "taboo": "araba, yedek, lastik, bagaj, tekerlek"
+    },
+    {
+        "word": "uyku",
+        "taboo": "yatmak, gece, yorgun, yatak, uzanmak"
+    },
+    {
+        "word": "soyut",
+        "taboo": "duyu, algılamak, görülmeyen, isim, somut"
+    },
+    {
+        "word": "tartı",
+        "taboo": "baskül, kilo, ağır, hafif, ölçü"
+    },
+    {
+        "word": "terim",
+        "taboo": "kelime, anlam, fatih, sanat, kavram"
+    },
+    {
+        "word": "şölen",
+        "taboo": "yemek, içmek, kutlama, ziyafet, eğlence"
+    },
+    {
+        "word": "doğum günü",
+        "taboo": "pasta, mum, hediye, yaş, parti"
+    },
+    {
+        "word": "parsel",
+        "taboo": "arsa, tarla, tapu, bölmek, satmak"
+    },
+    {
+        "word": "deney",
+        "taboo": "kimya, laboratuvar, fare, tüp, bilim"
+    },
+    {
+        "word": "fax",
+        "taboo": "çekmek, yazı, kağıt, fotokopi, göndermek"
+    },
+    {
+        "word": "ziraat",
+        "taboo": "tarım, çiftçi, toprak, hayvan, banka"
+    },
+    {
+        "word": "bukalemun",
+        "taboo": "hayvan, renk, kertenkele, değişmek, sürüngen"
+    },
+    {
+        "word": "sigara",
+        "taboo": "tütün, çakmak, küllük, nargile, izmarit"
+    },
+    {
+        "word": "kadeh",
+        "taboo": "alkol, bardak, şarap, içecek, cam"
+    },
+    {
+        "word": "pekmez",
+        "taboo": "üzüm, dut, tahin, tatlı, şarap"
+    },
+    {
+        "word": "staj",
+        "taboo": "öğrenci, tecrübe, iş, üniversite, çalışmak"
+    },
+    {
+        "word": "halay",
+        "taboo": "düğün, çekmek, oynamak, mendil, kol"
+    },
+    {
+        "word": "güneş",
+        "taboo": "sarı, sıcak, sistem, yuvarlak, doğmak"
+    },
+    {
+        "word": "arıza",
+        "taboo": "bozuk, tamir, çalışmak, telefon, elektrik"
+    },
+    {
+        "word": "bulut",
+        "taboo": "güneş, hava, gökyüzü, yağmur, mavi"
+    },
+    {
+        "word": "nadir",
+        "taboo": "zor, az, bulmak, sık, çok"
+    },
+    {
+        "word": "feshetmek",
+        "taboo": "antlaşma, sözleşme, iptal, geçersiz, bozmak"
+    },
+    {
+        "word": "güvenlik",
+        "taboo": "korunmak, tehlike, iş, yasa, görevli"
+    },
+    {
+        "word": "ayrılmak",
+        "taboo": "terk etmek, uzaklaşmak, gitmek, istifa etmek, bırakmak"
+    },
+    {
+        "word": "dalga",
+        "taboo": "deniz, enerji, okyanus, su, sörf"
+    },
+    {
+        "word": "lehçe",
+        "taboo": "dil, konuşmak, farklı, ağız, şive"
+    },
+    {
+        "word": "düello",
+        "taboo": "mücadele, çatışma, tartışma, kavga, söz"
+    },
+    {
+        "word": "durak",
+        "taboo": "otobüs, tren, dolmuş, binmek, inmek"
+    },
+    {
+        "word": "kırmızı",
+        "taboo": "domates, boğa, renk, itfaiye, utanmak"
+    },
+    {
+        "word": "perde",
+        "taboo": "pencere, cam, tül, gece, korniş"
+    },
+    {
+        "word": "zanaat",
+        "taboo": "sanat, sanatkar, uzman, iş, usta"
+    },
+    {
+        "word": "pist",
+        "taboo": "pilot, uçak, havaalanı, yarış, şerit"
+    },
+    {
+        "word": "takvim",
+        "taboo": "yıl, ay, hafta, gün, sayı"
+    },
+    {
+        "word": "tahtakale",
+        "taboo": "istanbul, çarşı, eminönü, ucuz, alışveriş"
+    },
+    {
+        "word": "mücevher",
+        "taboo": "kadın, takı, altın, bilezik, kolye"
+    },
+    {
+        "word": "doktor",
+        "taboo": "meslek, hastane, sağlık, hasta, tıp"
+    },
+    {
+        "word": "oje",
+        "taboo": "tırnak, renk, sürmek, aseton, manikür"
+    },
+    {
+        "word": "şimşek",
+        "taboo": "gökyüzü, yağmur, ışık, yıldırım, korku"
+    },
+    {
+        "word": "futbol",
+        "taboo": "top, kale, iddaa, stadyum, maç"
+    },
+    {
+        "word": "banka",
+        "taboo": "para, hesap, müşteri, kredi kartı, çek"
+    },
+    {
+        "word": "kalem",
+        "taboo": "kurşun, tükenmez, kağıt, yazmak, çizmek"
+    },
+    {
+        "word": "hasret",
+        "taboo": "özlem, arzu, kavuşmak, yanmak, üzülmek"
+    },
+    {
+        "word": "araba",
+        "taboo": "ulaşım, araç, hız, gaz, fren"
+    },
+    {
+        "word": "aşçı",
+        "taboo": "yemek, meslek, önlük, mutfak, yiyecek"
+    },
+    {
+        "word": "ambulans",
+        "taboo": "112, hastane, acil, siren, hasta"
+    },
+    {
+        "word": "okul",
+        "taboo": "öğretmen, öğrenci, ders, ödev, zil"
+    },
+    {
+        "word": "soğuk algınlığı",
+        "taboo": "üşütmek, hastalık, ateş, nezle, akıntı"
+    },
+    {
+        "word": "krem",
+        "taboo": "vücut, el, kozmetik, ilaç, sıvı"
+    },
+    {
+        "word": "aşk",
+        "taboo": "sevgili, flört, sevmek, ilişki, his"
+    },
+    {
+        "word": "cambaz",
+        "taboo": "denge, ip, tehlike, gösteri, akrobat"
+    },
+    {
+        "word": "küllük",
+        "taboo": "sigara, çakmak, ateş, masa, çöp"
+    },
+    {
+        "word": "mala",
+        "taboo": "inşaat, çimento, sıva, duvar, usta"
+    },
+    {
+        "word": "oruç",
+        "taboo": "ramazan, iftar, sahur, açlık, teravih"
+    },
+    {
+        "word": "tabut",
+        "taboo": "cenaze, namaz, ölü, morg, mezarlık"
+    },
+    {
+        "word": "pasaport",
+        "taboo": "yurt dışı, konsolosluk, seyahat, başvuru, evrak"
+    },
+    {
+        "word": "cami",
+        "taboo": "namaz, imam, minare, müslüman, hoca"
+    },
+    {
+        "word": "şifre",
+        "taboo": "parola, telefon, kart, bilgisayar, kasa"
+    },
+    {
+        "word": "eczane",
+        "taboo": "eczacı, ilaç, reçete, kalfa, hasta"
+    },
+    {
+        "word": "nazende",
+        "taboo": "nazlı, nazlanan, edalı, sevgili, cilve"
+    },
+    {
+        "word": "şekerleme",
+        "taboo": "şeker, çikolata, uyuklamak, tatlı, lokum"
+    },
+    {
+        "word": "dondurma",
+        "taboo": "yaz, soğuk, süt, kahramanmaraş, külah"
+    },
+    {
+        "word": "eksen",
+        "taboo": "boylam, enlem, çizgi, dünya, dönmek"
+    },
+    {
+        "word": "aktar",
+        "taboo": "ilaç, bitkisel, baharat, dükkan, satmak"
+    },
+    {
+        "word": "hoparlör",
+        "taboo": "telefon, bilgisayar, televizyon, radyo, kulaklık"
+    },
+    {
+        "word": "besin",
+        "taboo": "yemek, yiyecek, öğün, beslenme, zehirlenme"
+    },
+    {
+        "word": "altın",
+        "taboo": "değerli, takmak, kuyumcu, sarraf, çeyrek"
+    },
+    {
+        "word": "küf",
+        "taboo": "yeşil, peynir, ekmek, bozuk, bakteri"
+    },
+    {
+        "word": "sözlük",
+        "taboo": "kelime, cümle, dil, anlam, tanım"
+    },
+    {
+        "word": "anatomi",
+        "taboo": "vücut, sistem, organ, diş, incelemek"
+    },
+    {
+        "word": "tiyatro",
+        "taboo": "oyun, sahne, sanat, perde, sinema"
+    },
+    {
+        "word": "makas",
+        "taboo": "kumaş, kesmek, kağıt, keskin, terzi"
+    },
+    {
+        "word": "tekila",
+        "taboo": "alkol, tuz, limon, shot, meksika"
+    },
+    {
+        "word": "rektör",
+        "taboo": "üniversite, kampüs, dekan, profesör, yök"
+    },
+    {
+        "word": "saç",
+        "taboo": "kuaför, berber, fön, kestirmek, boyamak"
+    },
+    {
+        "word": "saat",
+        "taboo": "saniye, yelkovan, akrep, zaman, alarm"
+    },
+    {
+        "word": "piyaz",
+        "taboo": "fasulye, tahin, yumurta, limon, zeytinyağı"
+    },
+    {
+        "word": "modem",
+        "taboo": "internet, wi-fi, kablosuz, bilgisayar, telefon"
+    },
+    {
+        "word": "künefe",
+        "taboo": "tatlı, şerbet, sıcak, peynir, kaymak"
+    },
+    {
+        "word": "soda",
+        "taboo": "içecek, maden suyu, kaynak, gazlı, yer altı"
+    },
+    {
+        "word": "ketçap",
+        "taboo": "sos, domates, kırmızı, patates, mayonez"
+    },
+    {
+        "word": "mayonez",
+        "taboo": "sos, beyaz, patates, hamburger, ketçap"
+    },
+    {
+        "word": "ipucu",
+        "taboo": "vermek, dedektif, sır, büyüteç, iz"
     }
 ]
