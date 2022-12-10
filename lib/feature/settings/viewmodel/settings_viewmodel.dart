@@ -11,8 +11,8 @@ class SettingsViewModel extends ChangeNotifier {
   late TextEditingController firstTeamTextField;
   late TextEditingController secondTeamTextField;
 
-  String firstTeamName = Hive.box('settings').get('firstTeam');
-  String secondTeamName = Hive.box('settings').get('secondTeam');
+  String firstTeamName = Hive.box('settings').get('firstTeam', defaultValue: 'firstTeam');
+  String secondTeamName = Hive.box('settings').get('secondTeam', defaultValue: 'secondTeam');
 
   int score = Hive.box('settings').get('score', defaultValue: 20);
   int seconds = Hive.box('settings').get('seconds', defaultValue: 60);

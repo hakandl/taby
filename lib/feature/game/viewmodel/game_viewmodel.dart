@@ -4,11 +4,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
-import 'package:tabu/core/base/viewmodel/base_viewmodel.dart';
-import 'package:tabu/feature/game/model/game_model.dart';
-import 'package:tabu/feature/home/view/home_view.dart';
-import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/base/viewmodel/base_viewmodel.dart';
+import '../../home/view/home_view.dart';
+import '../../settings/viewmodel/settings_viewmodel.dart';
+import '../model/game_model.dart';
 
 class GameViewModel extends ChangeNotifier with BaseViewModel {
   @override
@@ -68,6 +69,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
     skipCount = context!.read<SettingsViewModel>().skip;
     // context?.pop();
     wordsList.shuffle();
+    pageController.jumpToPage(0);
     startTimer();
     // notifyListeners();
   }

@@ -62,8 +62,10 @@ class BottomButtons extends StatelessWidget {
         backgroundColor: context.colorScheme.onBackground,
         child: Icon(
           timerCheck()
-              ? winCheck(context)
-                  ? Icons.thumb_up_outlined
+              ? value.remainingTime == 0
+                  ? winCheck(context)
+                      ? Icons.thumb_up_outlined
+                      : Icons.play_arrow
                   : Icons.play_arrow
               : Icons.check,
         ),

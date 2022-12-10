@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -20,15 +21,18 @@ class GameStatusCard extends StatelessWidget {
             color: context.colorScheme.onPrimary,
           ),
           title != null
-              ? Text(
+              ? AutoSizeText(
                   title ?? '',
                   style: context.textTheme.headline2,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
                 )
               : const SizedBox.shrink(),
           text != null
               ? Text(
                   text ?? '',
                   style: context.textTheme.headline6,
+                  textAlign: TextAlign.center,
                 )
               : const SizedBox.shrink(),
         ],
