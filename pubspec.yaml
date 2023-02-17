@@ -20,6 +20,7 @@ dependencies:
   kartal: ^2.4.3
   auto_size_text: ^3.0.0
   vibration: ^1.7.6
+  audioplayers: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -30,7 +31,7 @@ flutter:
 
   assets:
     - assets/data/words.json
-
+    - assets/data/sound/
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

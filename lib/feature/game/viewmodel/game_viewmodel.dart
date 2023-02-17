@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
@@ -23,6 +24,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
 
   Timer? timer;
   PageController pageController = PageController();
+  final player = AudioPlayer();
 
   late int remainingTime = context!.read<SettingsViewModel>().seconds;
   late int skipCount = context!.read<SettingsViewModel>().skip;
@@ -89,12 +91,15 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   }
 
   void addScore() {
+    player.play(AssetSource('data/sound/correct.wav'));
     firstTeam ? firstTeamScore++ : secondTeamScore++;
     pageController.jumpToPage(pageController.page!.toInt() + 1);
+
     notifyListeners();
   }
 
   void removeScore() {
+    player.play(AssetSource('data/sound/wrong.wav'));
     if (firstTeamScore > 0) firstTeam ? firstTeamScore-- : null;
     if (secondTeamScore > 0) firstTeam ? null : secondTeamScore--;
     pageController.jumpToPage(pageController.page!.toInt() + 1);
