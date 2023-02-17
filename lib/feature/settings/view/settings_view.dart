@@ -38,7 +38,7 @@ class SettingsView extends StatelessWidget {
                         center: false,
                         text: 'Ses & Titreşim',
                         onPressedL: () => context.read<SettingsViewModel>().vibrationSettings(),
-                        onPressedR: () => print('object'),
+                        onPressedR: () => context.read<SettingsViewModel>().soundSettings(),
                       ),
                       context.emptySizedHeightBoxLow3x,
                       Divider(

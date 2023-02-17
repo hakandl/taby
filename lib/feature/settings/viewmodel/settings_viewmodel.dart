@@ -24,9 +24,15 @@ class SettingsViewModel extends ChangeNotifier {
   }
 
   bool isVibration = Hive.box('settings').get('vibration', defaultValue: true);
+  bool isSound = Hive.box('settings').get('sound', defaultValue: true);
+
   void vibrationSettings() {
     isVibration = !isVibration;
-    print(isVibration);
+    notifyListeners();
+  }
+
+  void soundSettings() {
+    isSound = !isSound;
     notifyListeners();
   }
 

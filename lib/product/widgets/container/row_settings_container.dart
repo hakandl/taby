@@ -67,7 +67,7 @@ class RowSettingsContainer extends StatelessWidget {
         elevation: 0,
         size: const Size(48, 48),
         onPressed: onPressedR,
-        child: const Icon(Icons.music_note),
+        child: Icon(context.watch<SettingsViewModel>().isSound ? Icons.music_note : Icons.music_off),
       )
     ];
   }
