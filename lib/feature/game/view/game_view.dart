@@ -1,9 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import 'package:tabu/feature/game/viewmodel/game_viewmodel.dart';
 import 'package:tabu/product/widgets/buttons/fixed_size_elevated_button.dart';
+import 'package:tabu/product/widgets/cards/taboo_card.dart';
 import 'package:tabu/product/widgets/cards/team_score_card.dart';
 
 import '../../../core/base/view/base_view.dart';
@@ -89,33 +89,8 @@ class GameView extends StatelessWidget {
                             return const GameStatusCard(icon: Icons.pause);
                           }
                         }
-                        return Card(
-                          margin: EdgeInsets.zero,
-                          child: Container(
-                            padding: context.horizontalPaddingNormal,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AutoSizeText(
-                                  value.wordsList[index].word!.toUpperCase(),
-                                  style: context.textTheme.headline2,
-                                  textAlign: TextAlign.center,
-                                  maxLines: 1,
-                                ),
-                                Divider(
-                                  thickness: 3,
-                                  endIndent: context.width / 6,
-                                  indent: context.width / 6,
-                                ),
-                                AutoSizeText(
-                                  '${value.wordsList[index].taboo?.replaceAll(',', '\n').toTitleCase()}',
-                                  style: context.textTheme.headline4,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                        return TabooCard(
+                            word: value.wordsList[index].word ?? '', taboo: value.wordsList[index].taboo ?? '');
                       }),
                 ),
                 Expanded(
