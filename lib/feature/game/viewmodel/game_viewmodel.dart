@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
+import 'package:vibration/vibration.dart';
 
 import '../../../core/base/viewmodel/base_viewmodel.dart';
 import '../../home/view/home_view.dart';
@@ -45,6 +46,11 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
         timer = Timer.periodic(
           const Duration(seconds: 1),
           (_) {
+            if (remainingTime <= 4 && remainingTime > 0) {
+              if (context!.read<SettingsViewModel>().isVibration) {
+                Vibration.vibrate();
+              }
+            }
             if (remainingTime > 0) {
               remainingTime--;
               notifyListeners();
@@ -77,6 +83,9 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   void stopTimer() {
     timer?.cancel();
     notifyListeners();
+    if (context!.read<SettingsViewModel>().isVibration) {
+      Vibration.vibrate(duration: 1000);
+    }
   }
 
   void addScore() {

@@ -37,8 +37,8 @@ class SettingsView extends StatelessWidget {
                       RowSettingsContainer(
                         center: false,
                         text: 'Ses & Titreşim',
-                        onPressedL: () {},
-                        onPressedR: () {},
+                        onPressedL: () => context.read<SettingsViewModel>().vibrationSettings(),
+                        onPressedR: () => print('object'),
                       ),
                       context.emptySizedHeightBoxLow3x,
                       Divider(

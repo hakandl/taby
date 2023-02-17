@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:provider/provider.dart';
+import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
 
 import '../buttons/fixed_size_elevated_button.dart';
 
@@ -57,15 +59,15 @@ class RowSettingsContainer extends StatelessWidget {
       FixedSizeElevatedButton(
         elevation: 0,
         size: const Size(48, 48),
-        child: const Icon(Icons.vibration),
-        onPressed: () {},
+        onPressed: onPressedL,
+        child: Icon(context.watch<SettingsViewModel>().isVibration ? Icons.vibration : Icons.close),
       ),
       context.emptySizedWidthBoxLow3x,
       FixedSizeElevatedButton(
         elevation: 0,
         size: const Size(48, 48),
+        onPressed: onPressedR,
         child: const Icon(Icons.music_note),
-        onPressed: () {},
       )
     ];
   }

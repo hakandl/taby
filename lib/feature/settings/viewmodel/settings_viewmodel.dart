@@ -23,6 +23,13 @@ class SettingsViewModel extends ChangeNotifier {
     secondTeamTextField.dispose();
   }
 
+  bool isVibration = Hive.box('settings').get('vibration', defaultValue: true);
+  void vibrationSettings() {
+    isVibration = !isVibration;
+    print(isVibration);
+    notifyListeners();
+  }
+
   Future<void> changeTeamName() async {
     await Hive.box('settings').put('firstTeam', firstTeamTextField.text);
     await Hive.box('settings').put('secondTeam', secondTeamTextField.text);

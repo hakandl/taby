@@ -19,6 +19,8 @@ dependencies:
   # Utitilities
   kartal: ^2.4.3
   auto_size_text: ^3.0.0
+  vibration: ^1.7.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
