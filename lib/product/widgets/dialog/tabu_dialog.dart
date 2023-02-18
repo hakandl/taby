@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:tabu/product/widgets/buttons/fixed_size_elevated_button.dart';
+import 'package:taby/product/widgets/buttons/fixed_size_elevated_button.dart';
 
 mixin TabuShowDialog {
   Future<T?> showTabuShowDialog<T>(

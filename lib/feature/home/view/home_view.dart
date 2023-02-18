@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:tabu/feature/game/view/game_view.dart';
+import 'package:taby/feature/game/view/game_view.dart';
 
 import '../../../product/widgets/buttons/container_elevated_button.dart';
 import '../../settings/view/settings_view.dart';
@@ -19,7 +19,6 @@ class HomeView extends StatelessWidget {
               Text(
                 'taby',
                 style: context.textTheme.headline1?.copyWith(
-                  fontWeight: FontWeight.w400,
                   fontFamily: 'Merienda',
                 ),
               ),

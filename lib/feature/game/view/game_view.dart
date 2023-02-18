@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
-import 'package:tabu/feature/game/viewmodel/game_viewmodel.dart';
-import 'package:tabu/product/widgets/buttons/fixed_size_elevated_button.dart';
-import 'package:tabu/product/widgets/cards/taboo_card.dart';
-import 'package:tabu/product/widgets/cards/team_score_card.dart';
+import 'package:taby/feature/game/viewmodel/game_viewmodel.dart';
+import 'package:taby/product/widgets/buttons/fixed_size_elevated_button.dart';
+import 'package:taby/product/widgets/cards/taboo_card.dart';
+import 'package:taby/product/widgets/cards/team_score_card.dart';
 
 import '../../../core/base/view/base_view.dart';
 import '../../../product/widgets/cards/game_status_card.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
-import 'package:tabu/core/base/view/base_view.dart';
-import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
-import 'package:tabu/product/widgets/container/row_settings_container.dart';
-import 'package:tabu/product/widgets/input/team_name_textfield.dart';
+import 'package:taby/core/base/view/base_view.dart';
+import 'package:taby/feature/settings/viewmodel/settings_viewmodel.dart';
+import 'package:taby/product/widgets/container/row_settings_container.dart';
+import 'package:taby/product/widgets/input/team_name_textfield.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});

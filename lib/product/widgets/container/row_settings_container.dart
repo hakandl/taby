@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
-import 'package:tabu/feature/settings/viewmodel/settings_viewmodel.dart';
+import 'package:taby/feature/settings/viewmodel/settings_viewmodel.dart';
 
 import '../buttons/fixed_size_elevated_button.dart';
 
