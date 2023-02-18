@@ -89,7 +89,9 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
     notifyListeners();
     if (context!.read<SettingsViewModel>().isVibration) {
       if (await Vibration.hasVibrator() ?? false) {
-        Vibration.vibrate(duration: 1000);
+        if (remainingTime == 0) {
+          Vibration.vibrate(duration: 1000);
+        }
       }
     }
   }

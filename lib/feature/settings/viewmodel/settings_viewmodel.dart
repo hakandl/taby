@@ -11,8 +11,8 @@ class SettingsViewModel extends ChangeNotifier {
   late TextEditingController firstTeamTextField;
   late TextEditingController secondTeamTextField;
 
-  String firstTeamName = Hive.box('settings').get('firstTeam', defaultValue: 'Takım 1');
-  String secondTeamName = Hive.box('settings').get('secondTeam', defaultValue: 'Takım 2');
+  String firstTeamName = Hive.box('settings').get('first_team', defaultValue: 'Takım 1');
+  String secondTeamName = Hive.box('settings').get('second_team', defaultValue: 'Takım 2');
 
   int score = Hive.box('settings').get('score', defaultValue: 20);
   int seconds = Hive.box('settings').get('seconds', defaultValue: 60);
@@ -26,19 +26,25 @@ class SettingsViewModel extends ChangeNotifier {
   bool isVibration = Hive.box('settings').get('vibration', defaultValue: true);
   bool isSound = Hive.box('settings').get('sound', defaultValue: true);
 
-  void vibrationSettings() {
+  Future<void> hiveMethod(key, value) async {
+    await Hive.box('settings').put(key, value);
+  }
+
+  Future<void> vibrationSettings() async {
     isVibration = !isVibration;
+    await hiveMethod('vibration', isVibration);
     notifyListeners();
   }
 
-  void soundSettings() {
+  Future<void> soundSettings() async {
     isSound = !isSound;
+    await hiveMethod('sound', isSound);
     notifyListeners();
   }
 
   Future<void> changeTeamName() async {
-    await Hive.box('settings').put('firstTeam', firstTeamTextField.text);
-    await Hive.box('settings').put('secondTeam', secondTeamTextField.text);
+    await Hive.box('settings').put('first_team', firstTeamTextField.text);
+    await Hive.box('settings').put('second_team', secondTeamTextField.text);
 
     if (firstTeamTextField.text.isEmpty) firstTeamTextField.text = 'Takım 1';
     if (secondTeamTextField.text.isEmpty) secondTeamTextField.text = 'Takım 2';
@@ -54,10 +60,6 @@ class SettingsViewModel extends ChangeNotifier {
     if (score > 5) score = score - 5;
     await hiveMethod('score', score);
     notifyListeners();
-  }
-
-  Future<void> hiveMethod(key, value) async {
-    await Hive.box('settings').put(key, value);
   }
 
   Future<void> upSeconds() async {
