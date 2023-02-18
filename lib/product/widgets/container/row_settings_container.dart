@@ -60,7 +60,16 @@ class RowSettingsContainer extends StatelessWidget {
         elevation: 0,
         size: const Size(48, 48),
         onPressed: onPressedL,
-        child: Icon(context.watch<SettingsViewModel>().isVibration ? Icons.vibration : Icons.close),
+        child: context.watch<SettingsViewModel>().isVibration
+            ? const Icon(
+                Icons.vibration,
+              )
+            : Image.asset(
+                'assets/icon/vibrate_off.png',
+                height: 24,
+                width: 24,
+                color: Colors.white,
+              ),
       ),
       context.emptySizedWidthBoxLow3x,
       FixedSizeElevatedButton(

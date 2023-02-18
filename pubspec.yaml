@@ -33,6 +33,7 @@ flutter:
   assets:
     - assets/data/words.json
     - assets/data/sound/
+    - assets/icon/
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

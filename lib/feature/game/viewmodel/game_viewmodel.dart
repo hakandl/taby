@@ -47,10 +47,12 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
       (_) {
         timer = Timer.periodic(
           const Duration(seconds: 1),
-          (_) {
+          (_) async {
             if (remainingTime <= 4 && remainingTime > 0) {
               if (context!.read<SettingsViewModel>().isVibration) {
-                Vibration.vibrate();
+                if (await Vibration.hasVibrator() ?? false) {
+                  Vibration.vibrate();
+                }
               }
             }
             if (remainingTime > 0) {
@@ -82,11 +84,13 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
     // notifyListeners();
   }
 
-  void stopTimer() {
+  Future<void> stopTimer() async {
     timer?.cancel();
     notifyListeners();
     if (context!.read<SettingsViewModel>().isVibration) {
-      Vibration.vibrate(duration: 1000);
+      if (await Vibration.hasVibrator() ?? false) {
+        Vibration.vibrate(duration: 1000);
+      }
     }
   }
 
