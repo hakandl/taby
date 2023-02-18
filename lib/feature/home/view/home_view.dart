@@ -17,9 +17,10 @@ class HomeView extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                'TABU',
+                'taby',
                 style: context.textTheme.headline1?.copyWith(
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Merienda',
                 ),
               ),
               const Spacer(),

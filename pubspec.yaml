@@ -45,3 +45,8 @@ flutter:
           weight: 500
         - asset: assets/fonts/Prompt-SemiBold.ttf
           weight: 600
+    - family: Merienda
+      fonts:
+        - asset: assets/fonts/Merienda-Regular.ttf
+        - asset: assets/fonts/Merienda-Bold.ttf
+          weight: 700
