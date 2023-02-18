@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
 import 'package:taby/feature/game/view/game_view.dart';
 
@@ -54,6 +55,14 @@ class HomeView extends StatelessWidget {
                       height: 44,
                       width: context.width / 2.5,
                       child: Text('Ayarlar', style: context.textTheme.titleMedium),
+                    ),
+                    context.emptySizedHeightBoxLow,
+                    ContainerElevatedButton(
+                      onPressed: () => SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
+                      elevation: 10,
+                      height: 44,
+                      width: context.width / 2.5,
+                      child: Text('Çıkış', style: context.textTheme.titleMedium),
                     ),
                   ],
                 ),
