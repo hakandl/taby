@@ -23,6 +23,7 @@ dependencies:
   audioplayers: ^3.0.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.11.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
@@ -50,3 +51,7 @@ flutter:
         - asset: assets/fonts/Merienda-Regular.ttf
         - asset: assets/fonts/Merienda-Bold.ttf
           weight: 700
+
+flutter_icons:
+  android: "ic_launcher"
+  image_path: "assets/icon/taby-icon.png"
