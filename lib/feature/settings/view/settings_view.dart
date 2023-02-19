@@ -16,61 +16,64 @@ class SettingsView extends StatelessWidget {
         onDispose: (model) {
           model.textFieldDispose();
         },
-        onPageBuilder: (context, value) => Scaffold(
-              appBar: AppBar(
-                leading: BackButton(
-                  color: context.colorScheme.onPrimary,
-                  onPressed: () {
-                    context.read<SettingsViewModel>().changeTeamName();
-                    context.pop();
-                  },
+        onPageBuilder: (context, value) => GestureDetector(
+              onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+              child: Scaffold(
+                appBar: AppBar(
+                  leading: BackButton(
+                    color: context.colorScheme.onPrimary,
+                    onPressed: () {
+                      context.read<SettingsViewModel>().changeTeamName();
+                      context.pop();
+                    },
+                  ),
+                  title: const Text('Ayarlar'),
                 ),
-                title: const Text('Ayarlar'),
-              ),
-              body: SafeArea(
-                child: SingleChildScrollView(
-                  padding: context.horizontalPaddingNormal,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      context.emptySizedHeightBoxLow3x,
-                      RowSettingsContainer(
-                        center: false,
-                        text: 'Ses & Titreşim',
-                        onPressedL: () => context.read<SettingsViewModel>().vibrationSettings(),
-                        onPressedR: () => context.read<SettingsViewModel>().soundSettings(),
-                      ),
-                      context.emptySizedHeightBoxLow3x,
-                      Divider(
-                        thickness: 2,
-                        color: context.colorScheme.primary,
-                        indent: context.width * .02,
-                        endIndent: context.width * .02,
-                      ),
-                      context.emptySizedHeightBoxLow3x,
-                      textFieldContainer(context, context.watch<SettingsViewModel>().firstTeamTextField),
-                      context.emptySizedHeightBoxLow3x,
-                      textFieldContainer(context, context.watch<SettingsViewModel>().secondTeamTextField),
-                      context.emptySizedHeightBoxLow3x,
-                      RowSettingsContainer(
-                        text: '${context.watch<SettingsViewModel>().score} puan',
-                        onPressedL: () => context.read<SettingsViewModel>().downScore(),
-                        onPressedR: () => context.read<SettingsViewModel>().upScore(),
-                      ),
-                      context.emptySizedHeightBoxLow3x,
-                      RowSettingsContainer(
-                        text: '${context.watch<SettingsViewModel>().seconds} saniye',
-                        onPressedL: () => context.read<SettingsViewModel>().downSeconds(),
-                        onPressedR: () => context.read<SettingsViewModel>().upSeconds(),
-                      ),
-                      context.emptySizedHeightBoxLow3x,
-                      RowSettingsContainer(
-                        text: '${context.watch<SettingsViewModel>().skip} pas',
-                        onPressedL: () => context.read<SettingsViewModel>().downSkip(),
-                        onPressedR: () => context.read<SettingsViewModel>().upSkip(),
-                      ),
-                      context.emptySizedHeightBoxLow3x,
-                    ],
+                body: SafeArea(
+                  child: SingleChildScrollView(
+                    padding: context.horizontalPaddingNormal,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        context.emptySizedHeightBoxLow3x,
+                        RowSettingsContainer(
+                          center: false,
+                          text: 'Ses & Titreşim',
+                          onPressedL: () => context.read<SettingsViewModel>().vibrationSettings(),
+                          onPressedR: () => context.read<SettingsViewModel>().soundSettings(),
+                        ),
+                        context.emptySizedHeightBoxLow3x,
+                        Divider(
+                          thickness: 2,
+                          color: context.colorScheme.primary,
+                          indent: context.width * .02,
+                          endIndent: context.width * .02,
+                        ),
+                        context.emptySizedHeightBoxLow3x,
+                        textFieldContainer(context, context.watch<SettingsViewModel>().firstTeamTextField),
+                        context.emptySizedHeightBoxLow3x,
+                        textFieldContainer(context, context.watch<SettingsViewModel>().secondTeamTextField),
+                        context.emptySizedHeightBoxLow3x,
+                        RowSettingsContainer(
+                          text: '${context.watch<SettingsViewModel>().score} puan',
+                          onPressedL: () => context.read<SettingsViewModel>().downScore(),
+                          onPressedR: () => context.read<SettingsViewModel>().upScore(),
+                        ),
+                        context.emptySizedHeightBoxLow3x,
+                        RowSettingsContainer(
+                          text: '${context.watch<SettingsViewModel>().seconds} saniye',
+                          onPressedL: () => context.read<SettingsViewModel>().downSeconds(),
+                          onPressedR: () => context.read<SettingsViewModel>().upSeconds(),
+                        ),
+                        context.emptySizedHeightBoxLow3x,
+                        RowSettingsContainer(
+                          text: '${context.watch<SettingsViewModel>().skip} pas',
+                          onPressedL: () => context.read<SettingsViewModel>().downSkip(),
+                          onPressedR: () => context.read<SettingsViewModel>().upSkip(),
+                        ),
+                        context.emptySizedHeightBoxLow3x,
+                      ],
+                    ),
                   ),
                 ),
               ),
