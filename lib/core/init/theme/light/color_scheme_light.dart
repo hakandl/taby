@@ -18,7 +18,7 @@ class ColorSchemeLight {
   final Color seagull = const Color(0xff6DC0E8);
   final Color forestGreen = const Color(0xff3E912C);
 
-  final Brightness brightnessLight = Brightness.light;
+  final Brightness brightnessLight = Brightness.dark;
   final SystemUiOverlayStyle systemOverlayStyle = SystemUiOverlayStyle.light;
 
   final Color transparent = Colors.transparent;

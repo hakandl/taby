@@ -14,18 +14,22 @@ class AppThemeLight extends AppTheme with IThemeLight {
 
   @override
   ThemeData get theme => ThemeData.light().copyWith(
-        useMaterial3: true,
-        textTheme: ThemeData.light().textTheme.apply(
-              fontFamily: ApplicationConstants.FONT_FAMILY,
-              displayColor: colorSchemeLight?.whisper,
-              bodyColor: colorSchemeLight?.whisper,
-            ),
-        primaryTextTheme: ThemeData.light().textTheme.apply(fontFamily: ApplicationConstants.FONT_FAMILY),
-        colorScheme: _colorScheme,
-        appBarTheme: _appBarTheme,
-        scaffoldBackgroundColor: colorSchemeLight?.daisyBush,
-        cardColor: colorSchemeLight?.purpleHeart,
-      );
+      useMaterial3: true,
+      textTheme: ThemeData.light().textTheme.apply(
+            fontFamily: ApplicationConstants.FONT_FAMILY,
+            displayColor: colorSchemeLight?.whisper,
+            bodyColor: colorSchemeLight?.whisper,
+          ),
+      primaryTextTheme: ThemeData.light().textTheme.apply(fontFamily: ApplicationConstants.FONT_FAMILY),
+      colorScheme: _colorScheme,
+      appBarTheme: _appBarTheme,
+      scaffoldBackgroundColor: colorSchemeLight?.daisyBush,
+      cardColor: colorSchemeLight?.purpleHeart,
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: colorSchemeLight?.daisyBush,
+        selectionColor: colorSchemeLight?.daisyBush,
+        selectionHandleColor: colorSchemeLight?.daisyBush,
+      ));
 
   ColorScheme get _colorScheme => ColorScheme(
         brightness: colorSchemeLight!.brightnessLight,
