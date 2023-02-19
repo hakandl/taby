@@ -77,8 +77,8 @@ class GameView extends StatelessWidget {
                           if (context.watch<GameViewModel>().timer != null &&
                               !context.watch<GameViewModel>().timer!.isActive) {
                             if (value.remainingTime == 0 &&
-                                    value.firstTeamScore >= context.read<SettingsViewModel>().score ||
-                                value.secondTeamScore >= context.read<SettingsViewModel>().score) {
+                                (value.firstTeamScore >= context.read<SettingsViewModel>().score ||
+                                    value.secondTeamScore >= context.read<SettingsViewModel>().score)) {
                               return GameStatusCard(
                                 icon: Icons.thumb_up_outlined,
                                 text:
