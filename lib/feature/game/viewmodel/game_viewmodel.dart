@@ -99,7 +99,6 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   void addScore() {
     if (context!.read<SettingsViewModel>().isSound) {
       player.play(AssetSource('data/sound/correct.wav'));
-      player.stop();
     }
     firstTeam ? firstTeamScore++ : secondTeamScore++;
     pageController.jumpToPage(pageController.page!.toInt() + 1);
@@ -110,7 +109,6 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   void removeScore() {
     if (context!.read<SettingsViewModel>().isSound) {
       player.play(AssetSource('data/sound/wrong.wav'));
-      player.stop();
     }
     if (firstTeamScore > 0) firstTeam ? firstTeamScore-- : null;
     if (secondTeamScore > 0) firstTeam ? null : secondTeamScore--;
