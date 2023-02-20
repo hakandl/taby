@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:taby/core/init/theme/light/app_theme_light.dart';
@@ -6,6 +7,8 @@ import 'package:taby/feature/home/view/home_view.dart';
 import 'package:taby/product/init/product/product_init.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   final productInit = ProductInit();
   await hiveInit();
   runApp(

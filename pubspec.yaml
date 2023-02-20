@@ -21,6 +21,7 @@ dependencies:
   auto_size_text: ^3.0.0
   vibration: ^1.7.6
   audioplayers: ^3.0.1
+  google_mobile_ads: ^2.3.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.11.0
