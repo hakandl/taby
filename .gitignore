@@ -42,3 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Admob
+/lib/product/init/product/service/admob_service.dart
