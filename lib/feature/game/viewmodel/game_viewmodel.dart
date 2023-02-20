@@ -4,8 +4,10 @@ import 'dart:convert';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
+import 'package:taby/product/init/product/service/admob_service.dart';
 import 'package:vibration/vibration.dart';
 
 import '../../../core/base/viewmodel/base_viewmodel.dart';
@@ -20,11 +22,13 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   void init() {
     startTimer();
     getWords();
+    _createInterstitialAd();
   }
 
   Timer? timer;
   PageController pageController = PageController();
   final player = AudioPlayer();
+  InterstitialAd? _interstitialAd;
 
   late int remainingTime = context!.read<SettingsViewModel>().seconds;
   late int skipCount = context!.read<SettingsViewModel>().skip;
@@ -40,6 +44,34 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
     final jsonResponse = await jsonDecode(response) as List;
     // final jsonResponse = await compute(jsonDecode, response) as List;
     wordsList = jsonResponse.map((e) => GameModel.fromJson(e)).toList()..shuffle();
+  }
+
+  void _createInterstitialAd() {
+    InterstitialAd.load(
+      adUnitId: AdmobService.interstitialAdUnitId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) => _interstitialAd = ad,
+        onAdFailedToLoad: (error) => _interstitialAd = null,
+      ),
+    );
+  }
+
+  void showInterstitialAd() {
+    if (_interstitialAd != null) {
+      _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          _createInterstitialAd();
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          _createInterstitialAd();
+        },
+      );
+      _interstitialAd!.show();
+      _interstitialAd = null;
+    }
   }
 
   void startTimer() {

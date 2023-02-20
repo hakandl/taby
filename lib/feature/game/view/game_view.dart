@@ -79,8 +79,9 @@ class GameView extends StatelessWidget {
                             if (value.remainingTime == 0 &&
                                 (value.firstTeamScore >= context.read<SettingsViewModel>().score ||
                                     value.secondTeamScore >= context.read<SettingsViewModel>().score)) {
+                              context.read<GameViewModel>().showInterstitialAd();
                               return GameStatusCard(
-                                icon: Icons.thumb_up_outlined,
+                                icon: Icons.celebration_outlined,
                                 text:
                                     'Oyun bitti, kazanan ${value.firstTeamScore > value.secondTeamScore ? context.watch<SettingsViewModel>().firstTeamTextField.text : context.watch<SettingsViewModel>().secondTeamTextField.text} oldu',
                               );
