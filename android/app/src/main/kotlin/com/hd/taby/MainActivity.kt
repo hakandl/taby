@@ -1,4 +1,4 @@
-package com.example.tabu
+package com.hd.taby
 
 import io.flutter.embedding.android.FlutterActivity
 
