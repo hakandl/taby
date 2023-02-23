@@ -5,13 +5,11 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import 'package:taby/product/init/product/service/admob_service.dart';
 import 'package:vibration/vibration.dart';
 
 import '../../../core/base/viewmodel/base_viewmodel.dart';
-import '../../home/view/home_view.dart';
 import '../../settings/viewmodel/settings_viewmodel.dart';
 import '../model/game_model.dart';
 
@@ -154,9 +152,5 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
       skipCount--;
       notifyListeners();
     }
-  }
-
-  void nextResultView() {
-    context?.navigateToPage(const HomeView());
   }
 }
