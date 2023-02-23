@@ -26,7 +26,7 @@ class GameView extends StatelessWidget {
         model.init();
       },
       onDispose: (model) {
-        model.stopTimer();
+        // model.stopTimer();
       },
       onPageBuilder: (context, value) => ChangeNotifierProvider(
         create: (context) => value,
@@ -79,6 +79,7 @@ class GameView extends StatelessWidget {
                             if (value.remainingTime == 0 &&
                                 (value.firstTeamScore >= context.read<SettingsViewModel>().score ||
                                     value.secondTeamScore >= context.read<SettingsViewModel>().score)) {
+                              // ads
                               context.read<GameViewModel>().showInterstitialAd();
                               return GameStatusCard(
                                 icon: Icons.celebration_outlined,

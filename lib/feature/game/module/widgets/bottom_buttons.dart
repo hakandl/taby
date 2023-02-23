@@ -37,7 +37,13 @@ class BottomButtons extends StatelessWidget {
               ? Icons.exit_to_app
               : Icons.close,
         ),
-        onPressed: () => timerCheck() ? context.navigateToPage(const HomeView()) : value.removeScore(),
+        onPressed: () => timerCheck()
+            ? Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                  builder: (context) => const HomeView(),
+                ),
+                (Route<dynamic> route) => false)
+            : value.removeScore(),
       ),
     );
   }
