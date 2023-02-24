@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
+import 'package:taby/feature/game/view/game_end_view.dart';
 import 'package:taby/feature/game/viewmodel/game_viewmodel.dart';
 import 'package:taby/product/widgets/buttons/fixed_size_elevated_button.dart';
 import 'package:taby/product/widgets/cards/taboo_card.dart';
@@ -79,13 +80,14 @@ class GameView extends StatelessWidget {
                             if (value.remainingTime == 0 &&
                                 (value.firstTeamScore >= context.read<SettingsViewModel>().score ||
                                     value.secondTeamScore >= context.read<SettingsViewModel>().score)) {
+                              return const GameEndView();
+                              /* GameStatusCard(
                               // ads
-                              context.read<GameViewModel>().showInterstitialAd();
-                              return GameStatusCard(
+                              // context.read<GameViewModel>().showInterstitialAd();
                                 icon: Icons.celebration_outlined,
                                 text:
                                     'Oyun bitti, kazanan ${value.firstTeamScore > value.secondTeamScore ? context.watch<SettingsViewModel>().firstTeamTextField.text : context.watch<SettingsViewModel>().secondTeamTextField.text} oldu',
-                              );
+                              ); */
                             } else if (context.watch<GameViewModel>().remainingTime == 0) {
                               return const GameStatusCard(
                                 icon: Icons.timer_outlined,
