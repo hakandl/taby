@@ -12,7 +12,7 @@ class BottomButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Expanded(
-            child: _cancelButton(context),
+            child: !context.watch<GameViewModel>().isAdLoading ? _cancelButton(context) : const SizedBox.shrink(),
           ),
           timerCheck()
               ? const SizedBox.shrink()
@@ -20,7 +20,7 @@ class BottomButtons extends StatelessWidget {
                   child: _skipButton(context),
                 ),
           Expanded(
-            child: _okButton(context),
+            child: !context.watch<GameViewModel>().isAdLoading ? _okButton(context) : const SizedBox.shrink(),
           ),
         ],
       ),
