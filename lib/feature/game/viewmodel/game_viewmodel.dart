@@ -27,6 +27,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
   PageController pageController = PageController();
   final player = AudioPlayer();
   InterstitialAd? _interstitialAd;
+  bool isAdLoading = false;
 
   late int remainingTime = context!.read<SettingsViewModel>().seconds;
   late int skipCount = context!.read<SettingsViewModel>().skip;
@@ -70,6 +71,7 @@ class GameViewModel extends ChangeNotifier with BaseViewModel {
       _interstitialAd!.show();
       _interstitialAd = null;
     }
+    notifyListeners();
   }
 
   void startTimer() {
