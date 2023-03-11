@@ -8,7 +8,10 @@ import 'package:taby/product/init/product/product_init.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  MobileAds.instance.initialize();
+  MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
+    tagForChildDirectedTreatment: TagForChildDirectedTreatment.yes,
+    maxAdContentRating: MaxAdContentRating.g,
+  ));
   final productInit = ProductInit();
   await hiveInit();
   runApp(
@@ -33,6 +36,7 @@ class MyApp extends StatelessWidget {
       title: 'taby',
       home: const HomeView(),
       theme: AppThemeLight.instance.theme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
