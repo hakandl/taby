@@ -29,7 +29,7 @@ class SettingsViewModel extends ChangeNotifier {
   );
   int seconds = Hive.box(TabyStringConstants.hiveSettings).get(
     TabyStringConstants.hiveSeconds,
-    defaultValue: 60,
+    defaultValue: 90,
   );
   int skip = Hive.box(TabyStringConstants.hiveSettings).get(
     TabyStringConstants.hiveSkip,
