@@ -1,16 +1,56 @@
-# tabu
+# taby
 
-A new Flutter project.
+It's a taboo game.
 
-## Getting Started
+## Tech and Libraries
 
-This project is a starting point for a Flutter application.
+- MVVM Architecture
+- State Management: [Provider](https://pub.dev/packages/provider)
+- Database: [Hive](https://pub.dev/packages/hive)
+- Ads: [Google Mobile Ads](https://pub.dev/packages/google_mobile_ads)
 
-A few resources to get you started if this is your first Flutter project:
+## Play Store
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<a href="https://play.google.com/store/apps/details?id=com.hd.taby" target="_blank"><img src="screenshots/google-play-badge.png" width="250"></a>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
+<table>
+  <tr align="center">
+    <td colspan="2">Home Screen</td>
+</tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/home.png" width="250"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">Game Screen</td>
+  </tr>
+  <tr align="center">
+    <td><img src="screenshots/play1.png" width="250"></td>
+    <td><img src="screenshots/play2.png" width="250"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">Game Pause Screen</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/pause.png" width="250"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">Game Time End Screen</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/time_end.png" width="250"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">Game End Screen</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/finish.png" width="250"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">Settings Screen</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/settings.png" width="250"></td>
+  </tr>
+ </table>

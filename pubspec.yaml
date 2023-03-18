@@ -16,12 +16,14 @@ dependencies:
   # Database
   hive_flutter: ^1.1.0
 
+  # Google
+  google_mobile_ads: ^2.3.0
+
   # Utitilities
   kartal: ^2.4.3
   auto_size_text: ^3.0.0
   vibration: ^1.7.6
   audioplayers: ^3.0.1
-  google_mobile_ads: ^2.3.0
   video_player: ^2.6.0
 
 dev_dependencies:
@@ -36,8 +38,6 @@ flutter:
     - assets/data/sound/
     - assets/data/video/
     - assets/icon/
-    # - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
 
   fonts:
     - family: Prompt
