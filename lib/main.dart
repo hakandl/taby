@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
+import 'package:taby/core/constants/app/app_constants.dart';
 import 'package:taby/core/init/theme/light/app_theme_light.dart';
 import 'package:taby/feature/home/view/home_view.dart';
+import 'package:taby/product/constants/string_constants.dart';
 import 'package:taby/product/init/product/product_init.dart';
 
 void main() async {
@@ -24,7 +26,7 @@ void main() async {
 
 Future<void> hiveInit() async {
   await Hive.initFlutter();
-  await Hive.openBox('settings');
+  await Hive.openBox(TabyStringConstants.hiveSettings);
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'taby',
+      title: ApplicationConstants.APP_NAME,
       home: const HomeView(),
       theme: AppThemeLight.instance.theme,
       debugShowCheckedModeBanner: false,

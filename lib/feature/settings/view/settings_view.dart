@@ -3,6 +3,7 @@ import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import 'package:taby/core/base/view/base_view.dart';
 import 'package:taby/feature/settings/viewmodel/settings_viewmodel.dart';
+import 'package:taby/product/constants/string_constants.dart';
 import 'package:taby/product/widgets/container/row_settings_container.dart';
 import 'package:taby/product/widgets/input/team_name_textfield.dart';
 
@@ -27,7 +28,7 @@ class SettingsView extends StatelessWidget {
                       context.pop();
                     },
                   ),
-                  title: const Text('Ayarlar'),
+                  title: const Text(TabyStringConstants.settings),
                 ),
                 body: SafeArea(
                   child: SingleChildScrollView(
@@ -38,7 +39,7 @@ class SettingsView extends StatelessWidget {
                         context.emptySizedHeightBoxLow3x,
                         RowSettingsContainer(
                           center: false,
-                          text: 'Ses & Titreşim',
+                          text: TabyStringConstants.soundAndVibration,
                           onPressedL: () => context.read<SettingsViewModel>().vibrationSettings(),
                           onPressedR: () => context.read<SettingsViewModel>().soundSettings(),
                         ),
@@ -55,19 +56,19 @@ class SettingsView extends StatelessWidget {
                         textFieldContainer(context, context.watch<SettingsViewModel>().secondTeamTextField),
                         context.emptySizedHeightBoxLow3x,
                         RowSettingsContainer(
-                          text: '${context.watch<SettingsViewModel>().score} puan',
+                          text: '${context.watch<SettingsViewModel>().score} ${TabyStringConstants.score}',
                           onPressedL: () => context.read<SettingsViewModel>().downScore(),
                           onPressedR: () => context.read<SettingsViewModel>().upScore(),
                         ),
                         context.emptySizedHeightBoxLow3x,
                         RowSettingsContainer(
-                          text: '${context.watch<SettingsViewModel>().seconds} saniye',
+                          text: '${context.watch<SettingsViewModel>().seconds} ${TabyStringConstants.second}',
                           onPressedL: () => context.read<SettingsViewModel>().downSeconds(),
                           onPressedR: () => context.read<SettingsViewModel>().upSeconds(),
                         ),
                         context.emptySizedHeightBoxLow3x,
                         RowSettingsContainer(
-                          text: '${context.watch<SettingsViewModel>().skip} pas',
+                          text: '${context.watch<SettingsViewModel>().skip} ${TabyStringConstants.pass}',
                           onPressedL: () => context.read<SettingsViewModel>().downSkip(),
                           onPressedR: () => context.read<SettingsViewModel>().upSkip(),
                         ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
+import 'package:taby/core/constants/app/app_constants.dart';
 import 'package:taby/feature/game/view/game_view.dart';
+import 'package:taby/product/constants/string_constants.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../product/widgets/buttons/container_elevated_button.dart';
@@ -20,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/data/video/bg_video.mp4')
+    _controller = VideoPlayerController.asset(TabyStringConstants.homeBgVideo)
       ..initialize().then((_) {
         _controller.play();
         _controller.setLooping(true);
@@ -58,9 +60,9 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 const Spacer(),
                 Text(
-                  'taby',
+                  ApplicationConstants.APP_NAME,
                   style: context.textTheme.headline1?.copyWith(
-                    fontFamily: 'Merienda',
+                    fontFamily: TabyStringConstants.secondaryFontName,
                   ),
                 ),
                 const Spacer(),
@@ -84,7 +86,7 @@ class _HomeViewState extends State<HomeView> {
                           context.navigateToPage(const GameView());
                         },
                         child: Text(
-                          'OYNA',
+                          TabyStringConstants.play,
                           style: context.textTheme.headline4?.copyWith(letterSpacing: 10, fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -94,7 +96,7 @@ class _HomeViewState extends State<HomeView> {
                         elevation: 10,
                         height: 44,
                         width: context.width / 2.5,
-                        child: Text('Ayarlar', style: context.textTheme.titleMedium),
+                        child: Text(TabyStringConstants.settings, style: context.textTheme.titleMedium),
                       ),
                       context.emptySizedHeightBoxLow,
                       ContainerElevatedButton(
@@ -102,7 +104,7 @@ class _HomeViewState extends State<HomeView> {
                         elevation: 10,
                         height: 44,
                         width: context.width / 2.5,
-                        child: Text('Çıkış', style: context.textTheme.titleMedium),
+                        child: Text(TabyStringConstants.exit, style: context.textTheme.titleMedium),
                       ),
                     ],
                   ),
